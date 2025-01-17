@@ -1,48 +1,104 @@
-.App {
-  text-align: center;
-}
-
-.board {
-  display: grid;
-  grid-template-columns: repeat(5, 100px);
-  gap: 10px;
-  justify-content: center;
-  margin: 20px auto;
-}
-
-.card {
-  width: 100px;
-  height: 100px;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
   background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  font-size: 24px;
-  font-weight: bold;
 }
 
-.card.flipped {
-  background-color:violet;
+.App {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.start-screen, .game-over {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+button {
+  background-color: #4caf50;
   color: white;
-  cursor: default;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
 }
 
 .scores {
   display: flex;
   justify-content: space-around;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
-.timer {
-  margin: 20px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #ff5722;
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 cards per row */
+  gap: 10px; /* Spacing between cards */
+  margin-bottom: 20px;
+  justify-content: center; /* Center cards horizontally */
 }
+
+
+.card {
+  width: 80px; /* Fixed width */
+  height: 80px; /* Fixed height, making it square */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+
+.card.flipped {
+  background: #4caf50; /* Matched cards are green */
+}
+
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  background: #0056b3; /* Change color on hover */
+}
+
+@media (max-width: 768px) {
+  .board {
+    grid-template-columns: repeat(3, 1fr); /* Adjust grid for smaller screens */
+    gap: 8px; /* Reduce spacing */
+  }
+
+  .card {
+    width: 60px;
+    height: 60px;
+    font-size: 18px; /* Smaller font size for smaller cards */
+  }
+}
+
 .timeout-message {
   color: red;
-  font-size: 18px;
+  font-weight: bold;
   margin-top: 10px;
 }
