@@ -18,6 +18,23 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   box-sizing: border-box;
+  overflow: auto; /* Allow scrolling if content overflows */
+
+  
+}
+.h4, h2, h3, p {
+  font-size: 18px; /* Default font size for larger screens */
+  margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+  h4, h2, h3 {
+    font-size: 16px; /* Smaller font size for mobile */
+  }
+
+  p {
+    font-size: 14px; /* Smaller font size for paragraphs */
+  }
 }
 
 .start-screen, .game-over {
