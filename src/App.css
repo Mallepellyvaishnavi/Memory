@@ -5,9 +5,9 @@
 .board {
   display: grid;
   grid-template-columns: repeat(5, 100px);
-  gap: 5px;
+  gap: 10px;
   justify-content: center;
-  margin: 5px auto;
+  margin: 20px auto;
 }
 
 .card {
@@ -24,7 +24,7 @@
 }
 
 .card.flipped {
-  background-color: #4caf50;
+  background-color:violet;
   color: white;
   cursor: default;
 }
@@ -35,3 +35,14 @@
   margin: 20px;
 }
 
+.timer {
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff5722;
+}
+.timeout-message {
+  color: red;
+  font-size: 18px;
+  margin-top: 10px;
+}
