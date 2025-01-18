@@ -18,22 +18,22 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   box-sizing: border-box;
-  overflow: auto; /* Allow scrolling if content overflows */
+  overflow: auto;
 
   
 }
 .h4, h2, h3, p {
-  font-size: 18px; /* Default font size for larger screens */
+  font-size: 18px; 
   margin: 10px 0;
 }
 
 @media (max-width: 768px) {
   h4, h2, h3 {
-    font-size: 16px; /* Smaller font size for mobile */
+    font-size: 16px; 
   }
 
   p {
-    font-size: 14px; /* Smaller font size for paragraphs */
+    font-size: 14px; 
   }
 }
 
@@ -68,16 +68,16 @@ button:hover {
 
 .board {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 cards per row */
-  gap: 10px; /* Spacing between cards */
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 10px; 
   margin-bottom: 20px;
-  justify-content: center; /* Center cards horizontally */
+  justify-content: center; 
 }
 
 
 .card {
-  width: 80px; /* Fixed width */
-  height: 80px; /* Fixed height, making it square */
+  width: 80px;
+  height: 80px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,25 +92,25 @@ button:hover {
 
 
 .card.flipped {
-  background: #4caf50; /* Matched cards are green */
+  background: #4caf50; 
 }
 
 
 .card:hover {
-  transform: scale(1.05); /* Slightly enlarge on hover */
-  background: #0056b3; /* Change color on hover */
+  transform: scale(1.05); 
+  background: #0056b3; 
 }
 
 @media (max-width: 768px) {
   .board {
-    grid-template-columns: repeat(3, 1fr); /* Adjust grid for smaller screens */
-    gap: 8px; /* Reduce spacing */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 8px; 
   }
 
   .card {
     width: 60px;
     height: 60px;
-    font-size: 18px; /* Smaller font size for smaller cards */
+    font-size: 18px; 
   }
 }
 
