@@ -3,20 +3,20 @@ import "./App.css";
 
 const generateCards = () => {
   const numbers = Array.from({ length: 10 }, (_, i) => i + 1);
-  const cards = [...numbers, ...numbers]; // Double the numbers
-  return cards.sort(() => Math.random() - 0.5); // Shuffle the cards
+  const cards = [...numbers, ...numbers]; 
+  return cards.sort(() => Math.random() - 0.5);
 };
 
 const App = () => {
   const [cards, setCards] = useState([]);
-  const [flippedCards, setFlippedCards] = useState([]); // Indices of flipped cards
-  const [matchedCards, setMatchedCards] = useState([]); // Matched cards
-  const [currentPlayer, setCurrentPlayer] = useState(1); // Player 1 or 2
-  const [scores, setScores] = useState({ 1: 0, 2: 0 }); // Scores for players
-  const [timeLeft, setTimeLeft] = useState(20); // Time left for the current turn
-  const [timeoutMessage, setTimeoutMessage] = useState(""); // Timeout message
-  const [gameOver, setGameOver] = useState(false); // Game completion status
-  const [gameStarted, setGameStarted] = useState(false); // Game start status
+  const [flippedCards, setFlippedCards] = useState([]); 
+  const [matchedCards, setMatchedCards] = useState([]);
+  const [currentPlayer, setCurrentPlayer] = useState(1); 
+  const [scores, setScores] = useState({ 1: 0, 2: 0 }); 
+  const [timeLeft, setTimeLeft] = useState(20); 
+  const [timeoutMessage, setTimeoutMessage] = useState("");
+  const [gameOver, setGameOver] = useState(false); 
+  const [gameStarted, setGameStarted] = useState(false);
 
   useEffect(() => {
     if (!gameStarted) return;
@@ -29,13 +29,13 @@ const App = () => {
         } else {
           // Time ran out
           setTimeoutMessage(`Time Out! Player ${currentPlayer}'s turn is over.`);
-          switchTurn(); // Switch turn
-          return 20; // Reset timer for the next player
+          switchTurn(); 
+          return 20; 
         }
       });
     }, 1000);
 
-    return () => clearInterval(timer); // Cleanup on unmount or re-render
+    return () => clearInterval(timer); 
   }, [currentPlayer, gameStarted]);
 
   useEffect(() => {
@@ -49,15 +49,15 @@ const App = () => {
 
   const switchTurn = () => {
     setFlippedCards([]); // Reset flipped cards
-    setCurrentPlayer(currentPlayer === 1 ? 2 : 1); // Switch to the other player
-    setTimeout(() => setTimeoutMessage(""), 2000); // Clear timeout message after 2 seconds
+    setCurrentPlayer(currentPlayer === 1 ? 2 : 1); 
+    setTimeout(() => setTimeoutMessage(""), 2000); 
   };
 
   const handleCardClick = (index) => {
     if (!gameStarted || gameOver) return;
 
     // Play sound
-    const audio = new Audio("/sound.wav"); // Sound file in the public folder
+    const audio = new Audio("/sound.wav"); 
     audio.play();
 
     // Ignore clicks on already matched or flipped cards
@@ -78,17 +78,17 @@ const App = () => {
           ...scores,
           [currentPlayer]: scores[currentPlayer] + 1,
         });
-        setFlippedCards([]); // Reset flipped cards for next turn
+        setFlippedCards([]); 
       } else {
-        // No match, switch turn after a short delay
+      
         setTimeout(() => {
           setFlippedCards([]);
-          switchTurn(); // Switch to the next player
+          switchTurn(); 
         }, 1000);
       }
     }
 
-    // Reset the timer for the current player
+    
     setTimeLeft(20);
   };
 
