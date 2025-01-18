@@ -27,15 +27,7 @@ body {
   margin: 10px 0;
 }
 
-@media (max-width: 768px) {
-  h4, h2, h3 {
-    font-size: 16px; 
-  }
 
-  p {
-    font-size: 14px; 
-  }
-}
 
 .start-screen, .game-over {
   display: flex;
@@ -103,7 +95,7 @@ button:hover {
 
 @media (max-width: 768px) {
   .board {
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(3, 1fr); 
     gap: 8px; 
   }
 
@@ -111,6 +103,13 @@ button:hover {
     width: 60px;
     height: 60px;
     font-size: 18px; 
+  }
+  h4, h2, h3 {
+    font-size: 16px; 
+  }
+
+  p {
+    font-size: 14px; 
   }
 }
 
